@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-3">
+    <div class="col-10 col-md-4 col-lg-4 d-flex justify-content-center">
+        <img class="img-fluid shadow cartelera border rounded" src="/{{pelicula.portada}}"/>
+    </div>
+</div>
+<div class="row justify-content-center mt-3 tarjetas">
+    {% for sesion in sesiones %}
+    <div class="col-10 col-lg-8 shadow card rounded" style="width: 18rem;">
+        <div class="card-body shadow bg-danger text-white row rounded">
+            <div class="col-8 col-md-10">
+                <h5 class="card-title">{{sesion}}</h5>
+            </div>
+            <div class="col-4 col-md-2">
+                <a href="{{sesion.id}}" class="btn btn-warning">Reservar</a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

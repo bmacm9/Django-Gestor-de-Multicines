@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-10">
+        <div class="row border bg-danger rounded shadow justify-content-center">
+            <div class="col-12 col-xl-3 d-flex justify-content-center">
+                <img class="img-fluid imagen mt-2 mb-2 shadow rounded" src="/{{seleccionada.portada}}"/>
+            </div>
+            <div class="col-11 col-xl-9 mt-5">
+                <form action="/cartelera/{{seleccionada.titulo}}/{{sesion}}/reservar/" method="post">
+                    {% csrf_token %}
+                    <div class="row text-white mr-2">
+                        {% for j in "y"|rjust:"48" %}
+                        {% for butaca in butacas %}
+                        {% if butaca == forloop.parentloop.counter %}
+                        <div class="hola col-2 border rounded bg-dark">
+                            <label for="{{forloop.parentloop.counter}}">Asiento {{forloop.parentloop.counter}}</label>
+                            <input readonly hidden type="checkbox" name="{{forloop.parentloop.counter}}" id="{{forloop.parentloop.counter}}"><br/>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        <div class="col-2 border rounded">
+                            <label for="{{forloop.counter}}">Asiento {{forloop.counter}}</label>
+                            <input type="checkbox" name="{{forloop.counter}}" id="{{forloop.counter}}"><br/>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                    <input type="submit" class="btn btn-lg btn-success font-weight-bold mt-3 mb-2" value="Comprar">
+                </form>
+            </div>
+        </div>
+        <div class="row bg-warning pt-5 pb-5 rounded shadow tarjetas">
+            <div class="col-12">
+                <div class="row mt-2">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <h1>{{seleccionada.titulo}}</h1>
+                    </div>
+                    <div class="col-12 col-md-6 mt-2 text-white">
+                        <h3>{{sesionSelec.fecha}}</h3>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <h2>{{seleccionada.autor}}</h2>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 text-white">
+                        <h3>{{sesionSelec.hora}}</h3>
+                    </div>
+                    <div class="col-12 text-danger">
+                        <h3>{{sesionSelec.sala}}</h3>
+                    </div>
+                </div>
+                <div class="row mt-4 mb-2">
+                    <div class="col- col-lg-10">
+                        <h3><em>{{seleccionada.descripcion}}</em></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

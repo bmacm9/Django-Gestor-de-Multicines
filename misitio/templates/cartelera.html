@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-around mt-5 tarjetas">
+    {% for peliculas in peliculas %}
+    <div class="col-8 mb-4 col-sm-6 col-lg-2 ml-sm-2 ml-md-4 mr-md-4 mr-ml-2 card bg-danger rounded shadow" style="width: 18rem;">
+        <img class="img-fluid cartelera shadow mt-3" src="/{{peliculas.portada}}"/>
+        <div class="card-body">
+            <h5 class="card-title text-white">{{peliculas.titulo}}</h5>
+            <a href="/cartelera/{{peliculas.titulo}}" class="btn btn-warning">Reserva</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Cines Granada">
+    <meta name="author" content="Miguel Angel Civico">
+    <link rel="icon" href="favicon.ico">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Cines Granada </title>
+
+    {# Cargamos la librería #}
+    {% load bootstrap4 %}
+
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <header class="row">
+        <div class="col-12 pr-0">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">Granada Cines</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cartelera">Cartelera</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="row text-white bg-dark fixed-bottom pt-4">
+        <div class="col-12">
+            <div class="ml-5 text-xs-left">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <h5 class="text-uppercase">Granada Cines</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et orci non elit auctor vulputate.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3">© 2020 Copyright: Miguel Ángel Civico Mimbrera
+                <a href="https://github.com/bmacm9"> Github</a>
+            </div>
+        </div>
+    </footer>
+</div>
+{# JS y jQuery Bootstrap #}
+{% bootstrap_javascript jquery='full' %}
+
+<script>
+       $('.hola').next().remove()
+
+</script>
+</body>
+</html>

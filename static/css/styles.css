@@ -1,0 +1,32 @@
+body{
+
+    background-image: url("./1.jpg")
+}
+
+.container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.jumbotron {
+    color: black;
+    background-image: url("https://www.ecestaticos.com/image/clipping/a930589160fdabec8daf77487fb8b0d3/por-que-se-comen-palomitas-en-el-cine-en-vez-de-otros-039snacks039.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+    margin-bottom: 0 !important;
+}
+
+.imagen{
+    min-height: 400px;
+    max-height: 400px;
+}
+
+.cartelera{
+    max-height: 400px;
+    min-height: 400px;
+}
+
+.tarjetas{
+    margin-bottom: 200px;
+}

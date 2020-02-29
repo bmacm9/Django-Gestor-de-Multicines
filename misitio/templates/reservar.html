@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="card shadow col-10 col-lg-6 col-xl-4 bg-warning text-white font-weight-bold pt-4 pb-4">
+        <h1>Granada Cines</h1>
+        <form action="/cartelera/{{seleccionada.titulo}}/{{sesion}}/comprar/" class="card-body" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Nombre</label>
+                {{form.nombre}}
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                {{form.email}}
+            </div>
+            {% for butaca in butacas%}
+            <input type="hidden" value="{{butaca}}" name="butacas"/>
+            {% endfor %}
+            <div class="form-group">
+                <input class="btn btn-dark" type="submit" value="comprar"/>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="card shadow col-10 col-lg-6 col-xl-4 bg-danger pt-4 pb-4">
+        <h2>Spider-man</h2>
+        <p>Recibirás un mail con la confirmación del pedido</p>
+    </div>
+</div>
+{% endblock %}
